@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Expense {
+  id          String   @id @default(uuid())
+  description String
+  amount      Float
+  paidBy      String
+  splitAmong  String[]
+  category    String
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+
+model Vote {
+  id        String   @id @default(uuid())
+  category  String
+  option    String
+  votedBy   String[]
+  createdAt DateTime @default(now())
+}
+
+model PackingItem {
+  id         String  @id @default(uuid())
+  item       String
+  category   String
+  assignedTo String?
+  isPacked   Boolean @default(false)
+}
+
+model DriveImage {
+  id           String   @id @default(uuid())
+  driveId      String   @unique
+  name         String
+  thumbnailUrl String
+  downloadUrl  String
+  uploadedAt   DateTime
+  syncedAt     DateTime @default(now())
+}
+
+model Achievement {
+  id       String   @id @default(uuid())
+  badge    String
+  earnedBy String
+  date     DateTime @default(now())
+}
