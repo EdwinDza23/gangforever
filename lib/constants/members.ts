@@ -1,16 +1,16 @@
 // Gang members and their avatar color tokens
 
 export const GANG_MEMBERS = [
-  { name: 'Benjamin', image: '/assets/img/benja.png', color: 'gold', initial: 'M1' },
-  { name: 'Member 2', image: '/assets/img/edwin copy 2.jpg', color: 'teal' as const, initial: 'M2' },
-  { name: 'Member 3', image: '/assets/img/edwin copy 3.jpg', color: 'coral' as const, initial: 'M3' },
-  { name: 'Member 4', image: '/assets/img/benjamin.jpg', color: 'blue' as const, initial: 'M4' },
-  { name: 'Member 5', image: '/assets/img/benja.png', color: 'purple' as const, initial: 'M5' },
-  { name: 'Member 6', image: '/assets/img/edwin copy 6.jpg', color: 'gold' as const, initial: 'M6' },
-  { name: 'Member 7', image: '/assets/img/edwin copy 7.jpg', color: 'teal' as const, initial: 'M7' },
-  { name: 'Member 8', image: '/assets/img/edwin copy 8.jpg', color: 'coral' as const, initial: 'M8' },
-  { name: 'Member 9', image: '/assets/img/edwin copy 9.jpg', color: 'blue' as const, initial: 'M9' },
-  { name: 'Member 10', image: '/assets/img/edwin copy 10.jpg', color: 'purple' as const, initial: 'M10' },
+  { name: 'Benjamin', image: '/assets/img/Benjamin.png', color: 'gold' as const, initial: 'M1' },
+  { name: 'Edwin', image: '/assets/img/Edwin.png', color: 'teal' as const, initial: 'M2' },
+  { name: 'Edw', image: '/assets/img/Edw.png', color: 'coral' as const, initial: 'M3' },
+  { name: 'Rohan', image: '/assets/img/Rohan.png', color: 'blue' as const, initial: 'M4' },
+  { name: 'Anoop', image: '/assets/img/Anoop.png', color: 'purple' as const, initial: 'M5' },
+  { name: 'Guru', image: '/assets/img/Guru.png', color: 'gold' as const, initial: 'M6' },
+  { name: 'Benja', image: '/assets/img/Benja.png', color: 'teal' as const, initial: 'M7' },
+  { name: 'Sathish', image: '/assets/img/Sathish.png', color: 'coral' as const, initial: 'M8' },
+  { name: 'Mohit', image: '/assets/img/Mohit.png', color: 'blue' as const, initial: 'M9' },
+  { name: 'Ed', image: '/assets/img/Ed.png', color: 'purple' as const, initial: 'M10' },
 ];
 
 export const MEMBER_COLORS = {
