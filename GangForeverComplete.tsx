@@ -609,7 +609,7 @@ export default function GangForeverComplete() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen p-8 pt-24"
+      className="min-h-screen p-8 pt-24 pb-24"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -1434,7 +1434,7 @@ export default function GangForeverComplete() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary overflow-x-hidden">
+    <div className="min-h-screen bg-bg-primary text-text-primary overflow-x-hidden overflow-y-visible">
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
