@@ -374,6 +374,15 @@ export default function GangForeverComplete() {
     try {
       const res = await fetch('/api/photos');
       const data = await res.json();
+      console.log('[Gallery] API Response keys:', Object.keys(data));
+      console.log('[Gallery] Days:', Object.keys(data.photos || {}));
+      
+      const imageCounts = Object.values(data.photos || {}).map(arr => arr.length);
+      console.log('[Gallery] Raw image arrays:', imageCounts);
+      
+      const totalImages = imageCounts.reduce((a, b) => a + b, 0);
+      console.log('[Gallery] Total display images:', totalImages);
+      
       if (data.photos && Object.keys(data.photos).length > 0) {
         setGroupedImages(data.photos);
       } else {
@@ -400,8 +409,16 @@ export default function GangForeverComplete() {
   const displayImages = selectedDay === 'all' 
     ? Object.values(groupedImages).flat()
     : groupedImages[selectedDay] || [];
+    
+  // Debug: Log final count (only when images exist)
+  if (displayImages.length > 0) {
+    console.log('[Gallery] Days:', days);
+    console.log('[Gallery] Raw image arrays:', Object.values(groupedImages).map(arr => arr?.length || 0));
+    console.log('[Gallery] Total display images:', displayImages.length);
+  }
 
   const openLightbox = (index: number) => {
+    console.log('[Gallery] Opening lightbox at index:', index, 'of total:', displayImages.length);
     setLightboxIndex(index);
     setLightboxOpen(true);
   };
@@ -655,12 +672,14 @@ export default function GangForeverComplete() {
             animate={{ opacity: 1 }}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
           >
+            {console.log('[Gallery] Rendering images count:', displayImages.length) || null}
             {displayImages.map((image, index) => (
               <motion.div
                 key={image.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.05 }}
+                // Reduced delay from 0.05 to 0.02 for faster load perception
+                transition={{ delay: Math.min(index * 0.02, 0.5) }}
                 whileHover={{ scale: 1.05, y: -5 }}
                 onClick={() => openLightbox(index)}
                 className="group relative aspect-square overflow-hidden rounded-2xl bg-bg-secondary cursor-pointer border border-white/5"
